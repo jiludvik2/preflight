@@ -1,0 +1,4 @@
+interface:
+  display_name: "Define change"
+  short_description: "Clarify intended behavior and domain meaning"
+  default_prompt: "Use $define-change to establish the intended behavior and domain meaning for this change."

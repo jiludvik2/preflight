@@ -1,0 +1,37 @@
+[project]
+name = "preflight-checks"
+version = "0.1.0"
+requires-python = ">=3.10"
+
+[dependency-groups]
+dev = [
+    "mypy>=2.4.1",
+    "PyYAML>=6.0.3",
+    "ruff>=0.17.3",
+    "types-pyyaml>=6.0.12.20261030",
+]
+
+[tool.uv]
+package = false
+
+[[tool.uv.index]]
+url = "https://pypi.org/simple"
+default = true
+
+[tool.mypy]
+python_version = "3.10"
+strict = true
+files = [
+    "$MYPY_CONFIG_FILE_DIR/deploy.py",
+    "$MYPY_CONFIG_FILE_DIR/shared/resolve_model.py",
+    "$MYPY_CONFIG_FILE_DIR/shared/configure_models.py",
+    "$MYPY_CONFIG_FILE_DIR/skill_install.py",
+]
+
+[tool.ruff]
+target-version = "py310"
+include = ["*.py"]
+extend-exclude = ["**/evaluations/**", "**/archive/**"]
+
+[tool.ruff.lint]
+select = ["E4", "E7", "E9", "F"]

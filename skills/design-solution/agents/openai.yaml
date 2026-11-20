@@ -1,0 +1,4 @@
+interface:
+  display_name: "Design solution"
+  short_description: "Shape architecture and technical contracts"
+  default_prompt: "Use $design-solution to establish or assess the architecture and technical contracts for this change."

@@ -1,0 +1,94 @@
+# Ported task assignments from Delivery Readiness. Concrete model IDs live only here.
+version: 2
+models:
+  standard: gpt-6-sol
+  judgment: gpt-6-astra
+defaults:
+  model: standard
+  reasoning_effort: medium
+profile: baseline
+workflows:
+  requirements:
+    roles:
+      author:
+        complexity:
+          complex: {reasoning_effort: high}
+          high-risk: {model: judgment, reasoning_effort: high}
+      reviewer:
+        complexity:
+          complex: {reasoning_effort: high}
+          high-risk: {model: judgment, reasoning_effort: high}
+  domain:
+    roles:
+      author:
+        model: judgment
+        reasoning_effort: high
+        complexity:
+          routine: {model: standard, reasoning_effort: medium}
+          complex: {reasoning_effort: medium}
+      reviewer:
+        model: judgment
+        reasoning_effort: high
+        complexity:
+          routine: {model: standard, reasoning_effort: medium}
+  architecture:
+    roles:
+      author:
+        model: judgment
+        reasoning_effort: high
+        complexity:
+          routine: {model: standard, reasoning_effort: high}
+      reviewer:
+        model: judgment
+        reasoning_effort: high
+        complexity:
+          routine: {model: standard, reasoning_effort: high}
+  decision:
+    roles:
+      analyst:
+        reasoning_effort: high
+        complexity:
+          complex: {model: judgment}
+          high-risk: {model: judgment}
+      author:
+        reasoning_effort: high
+        complexity:
+          routine: {reasoning_effort: medium}
+          high-risk: {model: judgment}
+      reviewer:
+        reasoning_effort: high
+        complexity:
+          high-risk: {model: judgment}
+  design:
+    roles:
+      author:
+        reasoning_effort: high
+        complexity:
+          routine: {reasoning_effort: medium}
+          high-risk: {model: judgment}
+      reviewer:
+        reasoning_effort: high
+        complexity:
+          routine: {reasoning_effort: medium}
+          high-risk: {model: judgment}
+  api:
+    roles:
+      author:
+        reasoning_effort: high
+        complexity:
+          routine: {reasoning_effort: medium}
+          high-risk: {model: judgment}
+      reviewer:
+        reasoning_effort: high
+        complexity:
+          routine: {reasoning_effort: medium}
+          high-risk: {model: judgment}
+profiles:
+  baseline: {}
+  optimised:
+    workflows:
+      domain:
+        roles:
+          author:
+            complexity:
+              complex: {model: standard, reasoning_effort: high}
