@@ -146,6 +146,60 @@ its status into competing records. A standalone specialist performs the same ret
 and reports directly. Use existing operation output when no task record exists. This does
 not require a separate handoff document, fixed form, extra approval or new coordinator.
 
+## Compare related representations
+
+Use this procedure within `define-change` and `design-solution` preparation. Consolidate the
+existing source, model and contract checks into the current authoring or review work. The procedure
+does not itself trigger preparation from execution, add a reviewer or create another checking stage.
+
+| Operation | Comparison scope |
+| --- | --- |
+| Draft | Governing sources, selected representations and materially related views. |
+| Substantive Revise | Changed meaning and affected dependencies, within the resulting integrated concern. |
+| Review | Relevant comparisons within the requested concern, read-only. |
+| Validate | Named properties and directly affected consequences, read-only. |
+| Editorial change | Affected wording or presentation, without automatically reopening settled semantics. |
+
+"Validate consistency of these requirements, domain models and designs" selects the existing
+Validate operation for the supplied bundle, independently of a current edit. Preserve each skill's
+concern and use the other documents as context where relevant. Report work needing another concern's
+assessment through the existing lead or standalone result, without starting another workflow.
+This request does not select
+the whole repository, generate models, repair documents, accept decisions or start another coordinator.
+
+1. Establish the governing sources, relevant revisions or local changes, scope and acceptance
+   status from existing documents and operation context. Distinguish accepted, proposed and as-built
+   meaning. A deliberate proposed change is not automatically a contradiction with its baseline.
+2. Select comparisons through a shared subject, rule, interface or dependency. Do not compare
+   every possible pair. Apply the existing requirements, domain, model and technical-contract
+   criteria to the relationships that matter, including conditions, responsibilities, information,
+   state, timing and boundaries. Keep one owning definition for each rule.
+3. Check agreement within a level and faithful refinement between levels. Shared facts must not
+   demand incompatible outcomes in the same case. Technical detail must preserve governing meaning,
+   required behavior and constraints. Allow justified translations, aggregation, decomposition and
+   partial ordering. Matching labels, nodes or arrows are not required. Assess requirements coverage
+   separately from internal coherence. Agreement alone does not establish source fidelity.
+4. Trace revealing cases across the selected relationships using expected outcomes supported by
+   accepted intent or independent governing evidence. Include consequential boundaries, exceptions
+   or prohibited outcomes where relevant. Name the precise mismatch or missing relationship and
+   its effect, rather than treating any difference as a defect.
+
+Reuse a result only when it covers the same property and its relevant content, governing sources
+and dependencies remain valid. Recheck affected claims when meaning or those dependencies change.
+A wording or layout change may preserve semantic evidence while requiring presentation checks.
+Reuse existing authoring and independent-review evidence without duplicating work. Preserve all
+required syntax and rendering checks on final source and independent reviewer correction checks. This procedure adds no automatic tool reruns beyond those obligations
+and the checks affected by the change. Unavailable required checks remain explicitly unverified.
+
+Briefly identify the relationships or scenarios actually examined, material findings and limits
+in the existing result. Use scoped conclusions such as consistent within the examined scope,
+inconsistent or unresolved. An excluded relationship is a scope limit, not a successful check.
+For each material finding, give exact locations, conflicting statements or the missing relationship,
+a revealing case, practical impact and the correction needed at its owning source. Material unresolved
+uncertainty prevents the dependent consistency claim; independent work may continue. Do not average
+results into a score or create a global certificate, manifest, ledger or fixed report.
+Keep semantic conclusions separate from syntax, rendering, viewer and bounded-model results.
+
 ## Proof proportional to the claim
 
 Code shows implemented logic. Test source shows defined checks, not passing results.

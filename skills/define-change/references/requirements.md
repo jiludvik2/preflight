@@ -39,10 +39,14 @@ a questionnaire for every category, or add boilerplate for concerns that do not 
 
 Honor requested formats and project conventions. Prose or user stories can explain the
 user's purpose and outcome; Gherkin can express concrete conditions, events and observable
-results. Formulas with units and worked examples can specify calculations. For requested
-modelling deliverables, use [requirements modelling](models.md); do not add them automatically
-during ordinary drafting or review. Small explanatory tables and ordinary semantic reasoning
-remain available. Use only representations that add meaning; do not restate every rule in
+results. Formulas with units and worked examples can specify calculations.
+During Draft and substantive Revise, use the
+[question-to-technique aid](models.md#choose-a-technique-for-the-question) to select and include
+representations based on the covered behavior, including settled rules. Use the smallest useful
+set in the owning brief or chat result; simple rules can use boundary examples. During Review
+and Validate, assess model adequacy and explain findings without editing. Follow
+[requirements modelling](models.md) for construction and checks, respecting explicit format and scope limits.
+Use only representations that add meaning; do not restate every rule in
 several formats or force a user story around a system obligation. API and message schemas belong to
 design-solution; reference governing external contracts as constraints rather than designing
 them here.
@@ -225,8 +229,11 @@ and a necessary condition alone does not establish sufficient permission.
 An unresolved source conflict remains a finding, not permission to choose a business rule.
 
 Where conditions interact or lifecycle transitions matter, inspect applicable combinations
-and outcomes. This reasoning does not require generating a model deliverable; follow
-[requirements modelling](models.md) when that output is requested. Distinguish missing behavior from deliberate
+and outcomes using the [technique selection aid](models.md#choose-a-technique-for-the-question).
+Assess whether the representations make those rules understandable. Review and Validate report
+inadequate or missing views without editing. During Draft or substantive Revise, selected
+state-transition views follow the [statechart route](models.md#state-transitions).
+Distinguish missing behavior from deliberate
 exclusions, combinations ruled out by governing constraints and behavior explicitly left
 unconstrained. An example of each rule does not establish that their overlaps or remaining
 cases are covered. Check material boundaries, failures, recovery and concurrent events where

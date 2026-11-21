@@ -1,6 +1,6 @@
 ---
 name: define-change
-description: Establish or revise the intended behavior and domain meaning of a bounded product change, including recovering requirements and domain models from an existing system. Use for requirements briefs, domain models and context relationships, their assessment, or requested requirements and domain visualisations. Not for free-form exploration, implementation planning, or technical design.
+description: Establish or revise the intended behavior and domain meaning of a bounded product change, including recovering requirements and domain models from an existing system. Use for requirements briefs, domain models and context relationships, their assessment, and requirements and domain visualisations. Not for free-form exploration, implementation planning, or technical design.
 ---
 
 # Define change
@@ -61,21 +61,27 @@ Read the relevant guidance before authoring or assessing that content:
 
 Apply [context analysis](references/domain-meaning.md#contexts-and-relationships) when material contextual
 relationships or information restrictions affect the requested outcome, even without a map request.
+During Draft and substantive Revise, use the
+[question-to-technique aid](references/models.md#choose-a-technique-for-the-question) to select and include
+useful representations from the requirements and domain structure, including already settled rules.
+Use the smallest set that explains materially distinct concerns. Review and Validate assess model
+adequacy within their read-only scope.
 
 <a id="model-requirements-when-requested"></a>
-### Model requirements and domain meaning when requested
+### Model requirements and domain meaning
 
-Apply [modelling guidance](references/models.md) when the user requests models or visualisations
-of requirements or domain meaning, including ordinary requests such as "draw the business flow". The request can
-cover one concern or the whole document: "model these requirements throughout" lets you select
-suitable views across that scope. Do not require the user to name a notation or list artefacts.
+Apply [modelling guidance](references/models.md) during Draft and substantive Revise. Select useful
+views based on what the requirements cover, without waiting for a diagram request or an ambiguity.
+Include selected views beside their owning rules in the document or chat result, within the original
+scope; do not create a separate modelling portfolio or ledger by default. Simple isolated rules may
+need only a boundary example. Honour explicit format and scope limits and explicitly requested views.
 
-Generate modelling deliverables only when requested, in chat as well as files. An ordinary
-review can reason through combinations and use small explanatory tables without producing a
-model bundle. "Suggest where modelling would help" asks for recommendations, not model creation.
-Preserve Draft, Revise, Review and Validate semantics; modelling is a requested output, not a
-new lifecycle operation. Before creating affected models, check the necessary business decisions
-against the objective and flag consequential gaps to the user as the modelling guidance specifies.
+"Suggest where modelling would help" asks for recommendations only. Review and Validate remain
+read-only: evaluate whether the representations adequately explain the affected meaning and report
+findings without adding or revising models. Before creating affected models, check necessary business
+decisions against the objective. Follow the modelling guidance for provisional alternatives and
+decisions that block a settled view. A selected state-transition view uses the
+[state-transition guidance](references/models.md#state-transitions).
 
 ### Investigate disputed premises
 
@@ -93,8 +99,9 @@ for the affected concern.
 Report unavailable independent review explicitly rather than claiming reviewed completion.
 
 For Draft or substantive Revise, inspect the resulting artifact against the governing sources
-and a representative scenario. Check semantic correctness, terminology fit and reader
-comprehension separately. Confirm that explicit requested outputs are supplied, uncertainty
+and a representative scenario. Apply [consistency comparison](../../shared/principles.md#compare-related-representations)
+to selected models and their material relationships within this check. Check semantic correctness, terminology fit and reader
+comprehension separately. Confirm that selected views and explicitly requested outputs are supplied, uncertainty
 and proposed status are visible, and the next specialist can proceed without the conversation.
 For requirements, apply the [requirement-boundary and ID check](references/requirements.md#check-requirement-boundaries-and-identifiers)
 to the changed obligations, their existing owners and affected acceptance criteria. This scoped check
@@ -108,6 +115,9 @@ affected consequences. Neither requires a fixed report or an extra approval roun
 For requirements, follow the [requirements review protocol](references/requirements.md#review-requirements).
 It checks objective support, necessity, meaning, decision logic and comprehensibility for humans
 and agents. Apply its checks to the requested scope, not as a mandatory full audit for validation.
+Use [consistency comparison](../../shared/principles.md#compare-related-representations) within that scope.
+"Validate consistency" checks supplied requirements and domain models through this existing operation;
+it does not require a current edit or authorise repairs.
 
 ### Return the result
 

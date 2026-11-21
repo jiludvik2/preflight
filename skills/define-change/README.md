@@ -9,15 +9,16 @@ Choose the result needed by the next decision or task. Use [SKILL.md](SKILL.md) 
 instructions, or invoke `$define-change` after installation.
 
 Supported models include conceptual class models, activity diagrams, decision tables, timelines,
-and responsibility matrices. Mermaid diagrams and Markdown tables provide editable source.
+state models and responsibility matrices. Mermaid diagrams and Markdown tables provide editable source.
 See [Supported models and Mermaid diagrams](#supported-models-and-mermaid-diagrams) for examples.
 
 ## Keep the request short
 
 Name the operation and business subject. Identify the relevant sources if the agent does not
 already have them. The skill covers terminology, exceptions, acceptance examples, and distinctions
-between accepted rules, observations, and proposals. Ask for modelling when you need visual or
-tabular views; the skill can choose suitable models and notation. Name a separate domain model or
+between accepted rules, observations, and proposals. During drafting and substantive revision, the
+skill selects useful models from the requirements and domain structure without needing a diagram
+request. Name a separate domain model or
 particular diagram when you require that output. Reviews are read-only by default.
 
 ## Choose a task
@@ -73,7 +74,8 @@ which objects are distinct, what one record or quantity represents, and which ru
 Aggregates can help identify related changes that must remain consistent.
 
 For contextual differences, the skill examines local meanings, decision ownership, translations and
-permitted information. To inspect those relationships visually, ask it to draw the context map.
+permitted information. It includes a context map during drafting or substantive revision when material
+meaning boundaries and relationships need that view. You can also request a particular map explicitly.
 A different term, department or service does not automatically establish a new bounded context.
 Domain boundaries do not prescribe services, databases or deployment units. See the
 [context guidance](references/domain-meaning.md#contexts-and-relationships).
@@ -94,10 +96,11 @@ eligibility rules or preserved time boundaries. Both operations remain read-only
 
 ## Supported models and Mermaid diagrams
 
-When you ask for modelling, the skill selects the smallest useful set of views for your question.
-You do not need to choose diagram types. A broad "model this" starts with one useful view;
-a request to model the requirements throughout can produce several. Naming a specific model
-makes that output a required deliverable. A general review does not request a model bundle.
+During drafting and substantive revision, the skill selects the smallest useful set of views from
+the covered behavior and domain relationships, including settled rules. Several views can explain
+distinct concerns; simple rules may need only a boundary example. Naming a specific model makes it
+a required deliverable. Requests for modelling suggestions return recommendations only. Review and
+Validate assess existing views without creating or editing a model bundle.
 
 The supported views include:
 
@@ -105,7 +108,8 @@ The supported views include:
 | --- | --- |
 | How do domain meanings and decisions relate across contexts? | Context map |
 | What business concepts exist, and how do they relate? | UML-style conceptual class model. |
-| What happens, who acts, and where can work branch or fail? | Activity diagram. |
+| What happens, who acts, and where can work branch or fail? | Business flowchart. |
+| How does an event change behavior according to the current state? | State-transition model. |
 | Which conditions determine a result? | DMN-style decision table with explicit rule-matching behaviour. |
 | Which events, intervals, or deadlines affect the result? | Timeline or temporal constraints. |
 | Who performs an activity, supplies information, or makes a decision? | Responsibility matrix. |
@@ -114,6 +118,9 @@ Mermaid diagrams are supported, with editable source: use class diagrams for con
 relationships, and flowcharts for activities. Decision tables, responsibility matrices, and
 precise time constraints can use Markdown. These views explain business meaning; they do not
 require full UML or executable DMN notation.
+
+State models use Mermaid state diagrams and their supported state-machine features. Source
+review, syntax, rendering and viewer checks remain distinct. No pstack or formal checker is required.
 
 For model selection by the skill:
 
@@ -126,9 +133,17 @@ To require a particular view or format:
 > $define-change Add a conceptual class diagram in Mermaid.
 
 You can ask in ordinary language, such as "Draw the business flow, including incomplete cases."
-The skill chooses routine notation. Requested models are deliverables, while an ordinary review
-does not request a model bundle. Ask for editable source and separate checks of meaning, syntax,
+The skill chooses routine notation. Selected and explicitly requested views are deliverables during authoring. Review and Validate
+remain read-only. Ask for editable source and separate checks of meaning, syntax,
 and rendering. See the [modelling guidance](references/models.md).
+
+To check agreement between supplied views without editing:
+
+> $define-change Validate consistency of these requirements and domain models.
+
+The check traces relevant rules, responsibilities, state, timing and information constraints across
+the supplied representations. Different notations or levels of detail are not contradictions by
+themselves. The result identifies examined relationships, concrete mismatches and unresolved limits.
 
 ## Work autonomously and assess the result
 
