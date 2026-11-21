@@ -56,9 +56,9 @@ sources you trust. Ask the agent to explain what it can establish and what remai
 
 ## Map domain contexts
 
-Ask `define-change` to draw a context map when you need to inspect meaning boundaries, translations
-and relationships between domain models. It also analyses material contextual differences and
-information restrictions during ordinary domain work, without adding an unrequested map.
+During drafting and substantive revision, define-change selects a context map when material
+meaning boundaries, translations or relationships need that view. You can also request a particular
+map explicitly. Review and Validate assess the supplied material without drawing or editing maps.
 Context relationships constrain design; they do not prescribe services or deployment units.
 
 ## Independent review of new or changed proposals
@@ -106,13 +106,15 @@ completed work and evidence before continuing from the next executable action.
 
 For business and requirements models, use `define-change`. It covers domain concepts, terminology,
 identity, relationships, events, and rules. Use aggregates to discuss what must change together,
-and invariants for rules that must always hold. When you ask for modelling, the skill selects the
-smallest useful set of views. You can name the question without choosing diagram types.
+and invariants for rules that must always hold. During drafting and substantive revision, it selects
+the smallest useful set of views from the covered behavior, without waiting for a diagram request.
+You can name the question without choosing diagram types.
 Supported views include:
 
 - Use context maps to explain meaning boundaries and relationships between domain models.
 - Use conceptual class models to explain business concepts, relationships, and relevant cardinalities.
-- Use activity diagrams to explain business flows, decisions, handoffs, and unsuccessful outcomes.
+- Use flowcharts to explain business flows, decisions, handoffs, and unsuccessful outcomes.
+- Use state models to explain event effects that depend on current state.
 - Use DMN-style decision tables to examine conditions, results, overlapping rules, and missing cases.
   DMN is short for Decision Model and Notation.
 - Use timelines to explain event order, deadlines, intervals, and material time boundaries.
@@ -124,13 +126,16 @@ See the [domain guidance](skills/define-change/references/domain-meaning.md) and
 [modelling guidance](skills/define-change/references/models.md).
 
 For architecture and technical models, use `design-solution`. It supports C4 system context,
-component, conceptual class, entity-relationship, sequence, activity, and state models. The skill
-chooses useful views and routine notation itself. Architecture documents created or revised with
-the skill include a C4 system context diagram; other models are discretionary when they explain
-an important relationship better than prose. Preflight does not prescribe an architecture style
-or pattern. Choose boundaries and mechanisms against your requirements and constraints.
+component, deployment, conceptual class, entity-relationship, sequence, flow, state, decision and
+timing models. The skill chooses useful views and routine notation itself. Architecture documents created or revised with
+the skill include a C4 system context diagram. During drafting and substantive revision, other
+useful views are selected from the technical content, including settled rules. Preflight does not
+prescribe an architecture style or pattern. Choose boundaries and mechanisms against your requirements and constraints.
 See the [architecture](skills/design-solution/references/architecture.md) and
 [design modelling](skills/design-solution/references/models.md) guidance.
+
+State models use Mermaid state-machine capabilities, including hierarchy or concurrent regions
+when useful. The public skills do not run formal model checking or require pstack.
 
 Both skills support editable Mermaid diagrams. Conceptual class diagrams and activity flowcharts
 can explain business meaning. Technical views also support Mermaid C4, entity-relationship,
@@ -169,6 +174,12 @@ Passing selected checks does not establish every requirement or error path.
 Use the shared [principles](shared/principles.md), [artifact conventions](shared/artifacts.md), and
 [writing guidance](shared/writing.md) to understand the expected distinctions. Follow repository
 conventions where they already govern the work.
+
+## Check consistency across representations
+
+Ask either skill to validate consistency of supplied requirements, domain models and designs.
+Each retains its own concern and checks relevant shared facts, constraints and faithful refinement.
+The assessment remains read-only and reports actual scope, material mismatches and limits.
 
 ## Install the skills
 

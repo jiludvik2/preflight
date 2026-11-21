@@ -1,8 +1,10 @@
 <a id="model-requirements"></a>
 # Model requirements and domain meaning
 
-Use this guidance for requested models and visualisations of requirements or domain meaning. Read the shared sections
-and the selected techniques below; do not apply every technique to every document. Requirements
+Use this guidance during Draft and substantive Revise to select and include useful models from
+the requirements and domain structure. Settled rules can need a model as much as ambiguous ones.
+For Review and Validate, assess the adequacy of existing representations without editing. Read
+the shared sections and selected techniques; do not apply every technique to every document. Requirements
 own intended outcomes and domain models own business meaning. Technical topology, database
 schemas and API contracts remain with design-solution.
 
@@ -13,6 +15,7 @@ operation from the request and governing sources. These examples illustrate dist
 
 | Request | Action |
 | --- | --- |
+| "Draft or substantively revise these requirements." | Select and include views that explain the covered business paths, decisions, lifecycles, concepts, timing or context relationships, within scope. |
 | "Model these requirements throughout." | Select and add useful views across the document; replace overlapping notation where appropriate. |
 | "Model the outcome rules." | Select suitable techniques for that concern only. |
 | "Draw the context map for these domain models." | Supply a diagram of the relevant meaning boundaries and relationships. |
@@ -23,18 +26,43 @@ operation from the request and governing sources. These examples illustrate dist
 | "Validate the decision table for overlapping rules." | Check that property and directly affected consequences without editing. |
 | "Update the models for these changes." | Revise affected views and check their immediate dependencies. |
 
-An explicit request may name a technique or describe its recognisable output. Mentioning a
-diagram in quoted source material is not an instruction to create one. A general requirements
-review does not request a model bundle, even in chat. It can still use examples and small tables
-to explain findings. Modelling does not authorise implementation or accept new business rules.
+An explicit request may name a technique or describe its recognisable output and takes precedence
+over default selection. Mentioning a diagram in quoted source material alone does not select one.
+A general requirements review stays read-only, including in chat; it can use examples and small
+tables to explain findings. Modelling does not authorise implementation or accept new business rules.
+
+## Choose a technique for the question
+
+Inspect the covered behavior and domain relationships, then select representations that make
+their rules and consequences understandable. During Draft and substantive Revise, include those
+views even when the source meaning is already settled. During assessment, use the same questions
+to find inadequate or missing representations. A simple isolated rule, such as permission to apply
+at age 18, can use a boundary example. A keyword such as "state" or "role" alone does not select a diagram.
+
+| Requirements or domain structure and question | Selected technique |
+| --- | --- |
+| Which combinations of conditions determine the outcome? Can rules overlap or leave a case undecided? | Decision table with explicit inputs and matching semantics. |
+| What can happen next to this subject, and under which event or condition? | [Statechart](#state-transitions) when event effects depend on the subject's state. |
+| Which business paths, required ordering or handoffs lead to completion, failure or incomplete work? | Business flowchart or activity diagram, with guarded branches where supported. |
+| Which concepts are related, and does a rule apply to one member, a subset or the whole? | Concept model for material identity, relationships and cardinalities. |
+| Does an outcome depend on event order or a time boundary? | Time constraints and a revealing timeline. |
+| Who supplies evidence, performs work or decides? Does meaning change across contexts? | Responsibility matrix for material role distinctions; context map for material meaning boundaries and translations. |
+
+Use only the relevant technique guidance below. Select all materially distinct necessary views,
+then remove redundant ones; do not limit selection to one view when several explain different rules.
+Honour explicit diagram requests rather than substituting a table. Keep accepted meaning, observed
+facts and proposed business choices distinct. Include selected views and revealing cases in their
+owning document or chat result within the operation's scope. Use the existing reconciliation and
+independent-review workflow for proposed revisions, without adding a separate modelling review gate.
 
 ## Select views and resolve necessary meaning first
 
 Establish what the reader must understand or decide to achieve the stated objective. Select
-the smallest set of views that explains that meaning within the requested scope. A request to
-model a document throughout permits several useful views, not every technique by default.
-For a broad "model this" with no further scope, start with one useful view. Honour explicitly
-requested views without requiring another confirmation round.
+the smallest set of views that explains that meaning within the requested scope. Base selection
+on the structure of the requirements, not solely on unresolved questions or a user naming a
+technique. Include multiple views when each explains a materially distinct concern; omit an empty
+bundle or redundant diagrams for simple rules. Honour explicit format limits and requested views
+without requiring another confirmation round.
 
 Before creating models, check source support and necessary business decisions for the selected
 scope. For requirements views, apply [decision-completeness checks](requirements.md#check-decision-completeness-against-the-objective).
@@ -47,10 +75,12 @@ or a governing constraint. Do not ask the user to define an irrelevant cardinali
 
 For a remaining consequential business decision, use the existing
 [findings guidance](../../../shared/principles.md#actions-questions-and-scope) to explain the gap, contrasting
-case, options and recommendation. Present it to the user before creating the affected models,
-and wait for the required decision. Do not leave an unexplained question mark, choose a default
-or turn an assumption into a rule. Continue independent models whose meaning does not depend
-on the decision. Report factual investigation limits separately; do not ask the user for facts
+case, options and recommendation. Wait for the required decision before publishing a settled model
+of the affected meaning. A provisional representation may contrast clearly labelled alternatives
+or assumptions to expose the choice, within the requested output and operation. Do not select a
+default, turn unknown into false or prohibited, or present provisional guards as accepted rules.
+Continue independent models whose meaning does not depend on the decision. Report factual
+investigation limits separately; do not ask the user for facts
 available in the project. Route delegated questions through the active lead.
 
 ## Apply the selected techniques
@@ -67,6 +97,8 @@ imply all three.
 Include material translations, information restrictions, lost distinctions and shared agreements
 beside their relationships or in linked explanations. Preserve source, proposed status and scope.
 Do not duplicate detailed local rules or invent relationships to complete a diagram.
+Permission for a recipient to receive information does not establish its sender. Leave an
+unspecified endpoint unassigned instead of implying a source-supported transfer.
 
 An explicit request to draw a context map requires a diagram. Use the existing supported Mermaid
 and verification guidance below. A domain context map does not select software components, storage,
@@ -85,14 +117,42 @@ class does not prescribe a software class, table, foreign key or service.
 
 ### Activities
 
-Identify the business activity, relevant actors, starting conditions and observable outcomes.
-Show the necessary steps, decision guards and handoffs. Include exceptions, failure and
-incomplete processing where they affect the objective. Distinguish returning one case's result
-from stopping a wider activity; show loops only where the rules permit repeated work.
+Use a business flowchart or activity diagram when material business paths, ordering or handoffs
+need that view, or for an explicitly requested business flow. Name the activity,
+actors, starting conditions and observable end outcomes. Show outcome-driving decisions with
+guarded branches. A "validate" or "process" box must not hide the rule that selects an outcome.
+For example, distinguish "evidence missing" leading to "request evidence" from "evidence complete"
+leading to the eligibility decision, when those paths are supported by the sources.
 
-Check that branches lead to supported outcomes, material paths are reachable, and guards
-distinguish alternatives. Resolve consequential overlaps or missing paths before drawing the
-affected flow. Business responsibilities do not establish component or deployment boundaries.
+Include supported failure, incomplete work and retry paths when they affect the objective.
+Distinguish returning one case's result from stopping a wider activity. Show loops only where
+rules permit repeated work, with their exit conditions. Name handoffs and the next responsible
+role. Show parallel work or joins only where needed, and say whether a join waits for all paths
+or any one. An illustrative sequence must not impose unsupported business or implementation ordering.
+
+Check that material paths are reachable, branches lead to supported outcomes, and guards
+distinguish alternatives. Expose consequential overlaps or missing paths through the decision
+guidance above. Business responsibilities do not establish component or deployment boundaries.
+
+### State transitions
+
+Identify the subject whose lifecycle is modelled, its business states, triggering events,
+guards and observable effects. Distinguish a state from an event or activity. For example,
+"awaiting evidence" is a state, "evidence received" is an event, and "assess eligibility" is
+an activity. Capture source-supported invariants and unresolved meaning separately. An invariant
+must express a governing obligation, not merely restate the labels chosen for the model.
+Check required transitions against accepted rules and revealing scenarios. Inspect consequential
+missing transitions, repeated events and terminal-state behaviour where relevant. An omitted
+transition does not establish prohibition. A diagram can still omit a required action, so syntax and rendering checks do not replace
+this source-fidelity check.
+
+When event effects depend on the subject's state, include a state-transition view during Draft
+or substantive Revise without waiting for a diagram request. Supply editable Mermaid
+`stateDiagram-v2` source when a diagram is selected. Preserve supported events, guards, effects
+and revealing lifecycle scenarios. Use composite states, concurrent regions or choice states only when they express supported lifecycle behavior. Review guards, effects and terminal
+behavior against the governing sources. Mermaid is the state-machine notation for this public
+skill; it does not invoke pstack, TLA+ or another formal checker. Report syntax, rendering and
+viewer checks separately without claiming exhaustive verification.
 
 ### Decisions and coverage
 
@@ -148,11 +208,14 @@ do not silently let the new representation override governing meaning.
 Check the selected models against governing sources and representative cases from the objective.
 They must neither add unsupported behaviour nor omit behaviour necessary to their stated purpose.
 Apply the technique-specific checks above and check consistency across affected views.
+Use the shared [comparison procedure](../../../shared/principles.md#compare-related-representations)
+to select relevant relationships, reuse valid evidence and report the examined scope. Keep the
+technique-specific criteria here; do not add a separate model review pass.
 
 Keep editable source. Prefer repository-supported Mermaid for diagrams and Markdown for tables
 and constraints unless the user requests another supported format. Describe Mermaid class and
 flow diagrams as UML-style views where appropriate; do not claim full UML conformance.
-Do not install a renderer, add dependencies or require formal verification merely to model.
+Do not install a renderer or add dependencies merely to model. No external skill is required.
 
 Report these checks separately:
 
@@ -164,7 +227,7 @@ Report these checks separately:
 Repeat affected checks after changes. A successful render does not prove meaning or target-viewer
 compatibility. If tools are unavailable, report unperformed checks without treating settled
 meaning as incomplete. Explicitly requested rendered output remains unmet until supplied.
-Solver checks, executable decision engines and formal verification require a separate request.
+Formal verification and executable decision engines are outside these preparation skills.
 
 Return the created or revised views, locations and material gaps, or read-only findings for
 Review and Validate. State what was checked and what remains unverified. Do not claim full

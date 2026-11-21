@@ -60,8 +60,10 @@ needed for a decision, identify the missing distinction, affected conclusion and
 Do not introduce prohibited information or transfer decision ownership to complete the model.
 Keep unsupported boundaries and agreements proposed or unresolved, under the existing decision rules.
 
-Record relevant conclusions in the requested result without automatically adding a map or diagram.
-For a requested context map, use [modelling guidance](models.md#context-maps). Keep local rules in
+Record relevant conclusions in the requested result. During Draft and substantive Revise, include
+a context map when material meaning boundaries, translations or contextual relationships need
+that view, even without a diagram request; use [modelling guidance](models.md#context-maps).
+Review and Validate assess adequacy without editing. Keep local rules in
 their owning models and cross-context relationships in the appropriate shared view. Hand semantic
 constraints and unresolved dependencies to design-solution without choosing technical mechanisms.
 

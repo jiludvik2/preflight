@@ -1,6 +1,6 @@
 ---
 name: design-solution
-description: Recover, establish or assess architecture and technical contracts, including component boundaries, ADRs, technical designs, API contracts and requested models. Use for documenting an existing implementation, a bounded solution or its review. Not for free-form exploration, routine code structure, execution planning or implementation.
+description: Recover, establish or assess architecture and technical contracts, including component boundaries, ADRs, technical designs, API contracts and useful technical models. Use for documenting an existing implementation, a bounded solution or its review. Not for free-form exploration, routine code structure, execution planning or implementation.
 ---
 
 # Design solution
@@ -57,9 +57,13 @@ propose only the missing change. Select and read the relevant reference before w
 - [Architecture](references/architecture.md) for component boundaries, interfaces, main technology choices and decomposition. Every architecture document created or revised includes the system context diagram defined there.
 - [Decisions](references/decisions.md) for ADR analysis, authoring, substantive revision or assessment, including decision boundaries and verification obligations.
 - [Technical contracts](references/technical-contracts.md) for technical designs, protocols, HTTP contracts and consequential execution dependencies.
-- [Models](references/models.md) for the required architecture context diagram and other requested or useful models.
+- [Models](references/models.md) on Draft and substantive Revise to select and include the smallest set of materially useful views from the technical content, even when its rules are settled. No separate diagram request is needed. On Review or Validate, use it to assess model gaps within the requested scope without editing.
 - [Lifecycle](references/lifecycle.md) for changes to accepted designs and retained amendments.
 - [Execution handoff](../../shared/execution-handoff.md) when handing work to an execution lead or changing in-flight work.
+
+Explicit scope and format limits prevail. A request to suggest modelling calls for recommendations
+only. Model selection does not require an architecture document or a diagram bundle. A small
+interface may need only its signatures, semantics and a revealing example.
 
 For internal Python contracts, apply the [representation defaults](references/technical-contracts.md#internal-python-contracts)
 when choosing contract artifacts.
@@ -99,11 +103,14 @@ repetition while preserving conditions, exceptions, safeguards, governing refere
 targets. Keep the detail needed to explain and implement the design; no fixed document length is a target.
 
 For Draft or substantive Revise, inspect the complete result against its supporting evidence
-and a representative end-to-end scenario. Check governing claims against accepted sources.
+and a representative end-to-end scenario. Apply [consistency comparison](../../shared/principles.md#compare-related-representations)
+to selected views and their material relationships within this check. Check governing claims against accepted sources.
 Check as-built descriptions against the inspected implementation. Report discrepancies with
 governing sources without silently resolving them. Check responsibility and interface fit,
-supported mechanisms, verification obligations and each explicit deliverable. Supply each
-requested model, adequately reuse it or report it unresolved. Do not silently replace or omit it.
+supported mechanisms, verification obligations and each explicit deliverable. Complete each selected
+or requested view, including any reused view and necessary local refinement, or report its scoped
+unresolved output. Check the model selection
+against the complete technical content, not just ambiguities or explicit diagram requests.
 
 When a revision changes a name, responsibility, owner, hosting choice or interface, follow
 [change consistency](references/technical-contracts.md#changes-and-completion) through the affected artifacts.
@@ -126,6 +133,9 @@ missing or incorrect system context diagram without editing it. For bounded Vali
 the named properties and directly affected consequences. Apply the composition, consolidation and
 comprehension considerations above proportionately within that boundary. Report concrete gaps;
 neither operation revises or accepts artifacts.
+Use [consistency comparison](../../shared/principles.md#compare-related-representations) within that scope.
+"Validate consistency" checks a supplied design bundle and its governing requirements through this
+existing operation, independently of a current edit, without starting repairs or another coordinator.
 
 ### Return the result
 

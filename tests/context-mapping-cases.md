@@ -18,7 +18,8 @@ Use this accepted scenario:
 
 Ask for contextual analysis in a proposed domain definition, with no map request. Check that the
 actor preserves the distinct cancellation meanings, fact and decision ownership, information limit
-and participation obligations without automatically adding a diagram or map file.
+and participation obligations. During Draft or substantive Revise, include a context map when those
+material meaning boundaries and relationships need it; Review and Validate remain read-only.
 
 Then explicitly request a context-map diagram for the same concern. Check that it includes editable
 source, useful context scopes and labelled relationships. It must not imply that booking cancellation

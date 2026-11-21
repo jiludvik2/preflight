@@ -40,6 +40,9 @@ invent interactions to complete the picture. Use the [models guidance](models.md
 fallback conditions and validation. Check the context against the document's
 boundaries, responsibilities and interfaces, then trace one representative usage path through both.
 Report unsupported or conflicting relationships rather than silently settling them in the diagram.
+Apply the [connector-layout checks](models.md#keep-connectors-traceable) to the rendered context
+view. Revise avoidable box intersections, overlapping connectors and crossings before completion;
+preserve every material relationship and report any unresolved visual-check limitation.
 
 For example, this context covers the capacity library and its current callers. The library's
 boundary is logical; it is not a separately deployed service.

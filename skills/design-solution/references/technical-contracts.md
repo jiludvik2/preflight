@@ -1,9 +1,9 @@
 # Technical contracts
 
 Write for a reader who needs to understand and implement one coherent concern. Select only the
-applicable views, such as responsibilities, interactions, data, lifecycle, recovery, security and
-compatibility. Put each model beside the contract it explains rather than in a detached diagram
-gallery. A small interface change can be a short operation description; headings serve the content.
+materially useful views from the technical content using [model selection](models.md). This includes
+settled responsibilities, interactions, data, lifecycle, recovery, security and compatibility.
+Put each model beside the contract it explains rather than in a detached diagram gallery. A small interface change can be a short operation description; headings serve the content.
 
 ## Compose an implementable contract
 

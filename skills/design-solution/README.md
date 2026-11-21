@@ -8,8 +8,9 @@ Request the smallest useful result. You do not need an architecture document, de
 and detailed design for every change. Use [SKILL.md](SKILL.md) for the agent's instructions, or
 invoke `$design-solution` after installation.
 
-You can request C4 context, component, class, entity-relationship, sequence, activity, and state
-models, including editable Mermaid diagrams. See [Supported models and Mermaid diagrams](#supported-models-and-mermaid-diagrams)
+The skill selects useful C4 context, component, deployment, class, entity-relationship, sequence,
+flow, state, decision and timing models from the technical content during drafting and substantive
+revision, including editable Mermaid diagrams. See [Supported models and Mermaid diagrams](#supported-models-and-mermaid-diagrams)
 for the available views and short prompts. The skill chooses suitable models and notation; you do
 not need to select diagram types yourself.
 
@@ -61,7 +62,7 @@ architecture style or pattern. A logical component need not have its own process
 Domain boundaries inform the design without automatically requiring separate services.
 
 Architecture documents created or revised with the skill include an editable C4 system context
-diagram. Other views are selected according to the task. Compare alternatives using the same
+diagram. Other useful views are selected from the technical content without a separate modelling request. Compare alternatives using the same
 representative workflow, including failure and recovery where material. See the
 [architecture guidance](references/architecture.md).
 
@@ -95,9 +96,10 @@ consumer impact. See the [contract guidance](references/technical-contracts.md).
 
 ## Supported models and Mermaid diagrams
 
-The skill chooses models and routine notation according to the design question and useful level
-of detail. Architecture documents include a C4 system context diagram. Other models are added
-when they explain an important relationship better than prose. You can ask for appropriate models
+During drafting and substantive revision, the skill chooses models and routine notation according
+to the technical content and useful level of detail, even when the rules are settled. Architecture
+documents include a C4 system context diagram. Other selected views explain materially distinct
+structure, interactions or behavior without requiring every diagram type. You can ask for appropriate models
 without choosing diagram types. Naming a specific model makes that output a required deliverable.
 
 The supported views include:
@@ -105,16 +107,24 @@ The supported views include:
 | Design question | Suitable model |
 | --- | --- |
 | Who uses the system, and what external systems interact with it? | C4 system context. |
-| Which components own responsibilities, and how do they connect? | Component view. |
+| Which components own responsibilities, and how do they connect? | Component flowchart. |
+| Where do runtime instances run, and how are they isolated? | Mermaid C4Deployment. |
 | Which concepts or entities relate? | Conceptual class or entity-relationship model. |
 | Who interacts, and in what order? | Sequence diagram. |
-| What steps and branches form the workflow? | Activity diagram. |
+| What steps and branches form the workflow? | Flowchart. |
 | Which transitions are legal, under what conditions? | State machine or transition table. |
+| Which combinations of conditions determine outcomes? | Decision table. |
+| Which event order, deadlines or durations matter? | Mermaid timeline and precise constraints. |
 
-Mermaid diagrams are supported, with editable source: C4 context, component flowcharts or C4 views,
-class and entity-relationship diagrams, sequence diagrams, activity flowcharts, and state diagrams.
+Mermaid diagrams are supported, with editable source for C4 context and deployment, component
+flowcharts, class and entity-relationship diagrams, sequence diagrams, flowcharts, state diagrams
+and timelines. Decision tables and precise time constraints can use Markdown. Layout checks aim
+to keep connectors clear of unrelated boxes and labels, then reduce shared segments and crossings.
 Rendering depends on your tools and viewer, so ask the agent to report any rendering checks it
 could not complete.
+
+State models use Mermaid state diagrams and their supported state-machine features. Source
+review, syntax, rendering and viewer checks remain distinct. No pstack or formal checker is required.
 
 For model selection by the skill:
 
@@ -146,6 +156,14 @@ For read-only assessment, try:
 
 Use a bounded validation when you need a named property checked, such as compatibility of one API
 change. Neither review nor validation authorizes repairs or accepts a proposal.
+
+For a read-only comparison across the supplied design and its governing requirements:
+
+> $design-solution Validate consistency of these requirements and design views.
+
+The skill checks shared facts and faithful refinement, not identical diagram nodes or arrows.
+It reports the examined scope, revealing cases and mismatches at their owning source. Review
+and Validate do not authorize repairs or a new design portfolio.
 
 ## Assess the design before implementation
 
