@@ -106,6 +106,10 @@ and proposed status are visible, and the next specialist can proceed without the
 For requirements, apply the [requirement-boundary and ID check](references/requirements.md#check-requirement-boundaries-and-identifiers)
 to the changed obligations, their existing owners and affected acceptance criteria. This scoped check
 does not require a full review of unrelated requirements.
+The initial whole-draft review covers all proposed obligations. For a revision or a later
+correction check, cover changed meaning, affected obligations and unresolved findings, even
+when their IDs stay unchanged. The author and independent reviewer use the obligation-level
+analysis in the linked check; a list of valid IDs does not establish semantic coverage.
 
 ### Review or validate
 
