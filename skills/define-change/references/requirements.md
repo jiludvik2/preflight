@@ -141,6 +141,19 @@ Identify observable obligations within each requirement, including those embedde
 tables and paragraphs. Do not assume the author's headings, existing IDs or requested edit
 location establish suitable boundaries.
 
+Before judging the boundaries, make a short working decomposition of the obligations in the
+reviewed scope, including normative tables and unnumbered prose. Associate each obligation
+with its owning requirement or source location. Mark missing ownership rather than inventing
+it. Compare the verdicts the obligations within each affected requirement or statement could
+receive: could one hold while another fails, or could one change without changing the other?
+Use a concrete case where that distinction matters. For effects retained together, establish
+why their conditions and responses define one required behaviour. Make this decomposition inspectable in the existing review result: give a compact map from
+the affected requirements or statements to their obligations and boundary conclusions.
+Group simple items where one explanation applies, but keep every reviewed item's coverage
+identifiable and material unowned obligations visible. Use this map to check coverage before
+reporting the boundary review complete. It is review evidence, not a separate ledger or a
+target requirement count.
+
 Where obligations can succeed, fail, be verified or change independently, assess whether they
 need separate requirement IDs. Keep conditions, exceptions and jointly necessary guarantees
 together where separating them would obscure the required behavior. Do not allocate an ID
@@ -157,7 +170,11 @@ Check that acceptance criteria and examples identify the requirements they verif
 cases covering several requirements. Use existing IDs where present and otherwise clear section
 references. Do not require IDs for every assertion or impose a separate traceability table.
 Report bundled obligations, duplicate ownership, ambiguous criterion attribution and affected
-references as findings. Distinguish mechanical checks of ID uniqueness and reference integrity
+references as findings. Briefly identify the boundary coverage and the revealing cases in the
+existing review result, including material obligations found outside the numbered statements.
+When a plausible split was examined but its effects were retained together, explain the
+combined guarantee. A simple obligation needs no invented split analysis. Distinguish mechanical
+checks of ID uniqueness and reference integrity
 from judgment about suitable boundaries and coverage; an unchanged ID count proves neither.
 
 ### Check terms and individual obligations
