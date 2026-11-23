@@ -89,6 +89,12 @@ accepted requirements. Approval of a design or working code is not acceptance of
 
 ## Quality of the result
 
+During drafting, use the objective-support and requirement-boundary checks below as obligations
+are formed. Identify each obligation's protected outcome or governing constraint, applicable
+conditions and independently observable result. Test overall sufficiency with a revealing case
+before elaborating the catalogue. Reuse this analysis in review rather than creating a second
+record. A later review does not replace applying these criteria during construction.
+
 Check that the brief conveys what changes, why it matters, what remains outside scope and
 what observations would show success. Trace supported obligations to their evidence without
 requiring a traceability matrix for routine work. Name affected unknowns rather than calling
@@ -269,9 +275,14 @@ activity. No fixed case count or exhaustive enumeration is required.
 ### Check readability and independent comprehension
 
 Check meaning separately from wording. Use the shared writing guidance to inspect document
-order, concrete subjects, clear referents, dense paragraphs and table cells. Give each normative
-rule one maintained location in the proposed corrections, with references replacing duplicated
-obligations. Preserve useful summaries and examples that apply the rule without changing it.
+order, concrete subjects, clear referents, dense paragraphs and table cells. Put purpose, scope
+and constraints before detail. As reusable domain meaning or substantial examples make obligations
+hard to locate, separate them into their existing artifact locations and provide a short reading
+route. Carry necessary meanings and cross-cutting constraints into selective reading; a split
+does not make them optional. Keep short, self-contained changes together rather than imposing
+a file template or word limit. Give each normative rule one maintained owner, linking instead of
+duplicating it. Preserve useful summaries and clearly illustrative examples that apply the rule
+without changing it.
 
 A reader with the document and its declared references must be able to explain the objective,
 determine applicable obligations, and reach a supported result or identify the precise unresolved

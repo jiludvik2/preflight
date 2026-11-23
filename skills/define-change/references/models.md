@@ -45,6 +45,8 @@ at age 18, can use a boundary example. A keyword such as "state" or "role" alone
 | What can happen next to this subject, and under which event or condition? | [Statechart](#state-transitions) when event effects depend on the subject's state. |
 | Which business paths, required ordering or handoffs lead to completion, failure or incomplete work? | Business flowchart or activity diagram, with guarded branches where supported. |
 | Which concepts are related, and does a rule apply to one member, a subset or the whole? | Concept model for material identity, relationships and cardinalities. |
+| How do necessary, alternative or shared results contribute to a larger outcome? | Contribution graph with explicit grouping, distinguished from execution order. |
+| Which obligation is carried into which output revision or observation? | A small traceability matrix when those relationships are material to the requested understanding. |
 | Does an outcome depend on event order or a time boundary? | Time constraints and a revealing timeline. |
 | Who supplies evidence, performs work or decides? Does meaning change across contexts? | Responsibility matrix for material role distinctions; context map for material meaning boundaries and translations. |
 
@@ -63,6 +65,12 @@ on the structure of the requirements, not solely on unresolved questions or a us
 technique. Include multiple views when each explains a materially distinct concern; omit an empty
 bundle or redundant diagrams for simple rules. Honour explicit format limits and requested views
 without requiring another confirmation round.
+
+Check consequential relationships as well as individual subjects. Use a revealing case to see
+whether the selected views explain alternatives, shared results, handoffs and corrections,
+revision-sensitive uses or the effects of changing only part of the scope, where relevant.
+Having a concept diagram and a lifecycle view does not establish that those relationships are
+understandable. Add or refine a view only for a material question the existing views do not answer.
 
 Before creating models, check source support and necessary business decisions for the selected
 scope. For requirements views, apply [decision-completeness checks](requirements.md#check-decision-completeness-against-the-objective).
@@ -97,8 +105,6 @@ imply all three.
 Include material translations, information restrictions, lost distinctions and shared agreements
 beside their relationships or in linked explanations. Preserve source, proposed status and scope.
 Do not duplicate detailed local rules or invent relationships to complete a diagram.
-Permission for a recipient to receive information does not establish its sender. Leave an
-unspecified endpoint unassigned instead of implying a source-supported transfer.
 
 An explicit request to draw a context map requires a diagram. Use the existing supported Mermaid
 and verification guidance below. A domain context map does not select software components, storage,
@@ -115,29 +121,54 @@ Check that concepts have a domain meaning independent of storage and that relati
 their actual scope. Do not infer a whole-subject effect from a change to a subset. A conceptual
 class does not prescribe a software class, table, foreign key or service.
 
+For contribution graphs, distinguish necessary results from alternatives and identify shared
+children only when their outcome and criteria are the same. State what arrows and groupings
+mean; contribution is not execution order or automatic proof of parent achievement. For material
+traceability, relate the governing obligation to the identified output revision and relevant
+observation. Expose a missing or stale link rather than treating artifact existence as proof.
+Reference existing technical contracts where needed; do not design them to fill the matrix.
+
 ### Activities
 
 Use a business flowchart or activity diagram when material business paths, ordering or handoffs
-need that view, or for an explicitly requested business flow. Name the activity,
-actors, starting conditions and observable end outcomes. Show outcome-driving decisions with
-guarded branches. A "validate" or "process" box must not hide the rule that selects an outcome.
+need that view, or for an explicitly requested business flow. Give each view one clear process
+question and a consistent level of detail. Name the activity, actors, starting conditions and
+observable end outcomes. Keep subordinate checks in their owning activity unless their branches
+change the outcome shown here. Use concise action labels and explicit decision questions.
+A "validate" or "process" box must not hide the rule that selects an outcome.
 For example, distinguish "evidence missing" leading to "request evidence" from "evidence complete"
 leading to the eligibility decision, when those paths are supported by the sources.
 
 Include supported failure, incomplete work and retry paths when they affect the objective.
 Distinguish returning one case's result from stopping a wider activity. Show loops only where
-rules permit repeated work, with their exit conditions. Name handoffs and the next responsible
-role. Show parallel work or joins only where needed, and say whether a join waits for all paths
-or any one. An illustrative sequence must not impose unsupported business or implementation ordering.
+rules permit repeated work, with a change or progress condition and an exit. Distinguish a wait
+for an identified input or decision from a plan that needs correction. Name handoffs and the next
+responsible role, including upstream correction where relevant. Explain iteration and joins;
+state whether a join waits for all paths or any one.
+Do not make an arrow labelled "for each" imply an unspecified loop or parallel execution.
+Show concurrency only where needed. An illustrative path must not impose a mandatory sequence;
+name material omissions and point to the rules that cover them.
 
 Check that material paths are reachable, branches lead to supported outcomes, and guards
-distinguish alternatives. Expose consequential overlaps or missing paths through the decision
-guidance above. Business responsibilities do not establish component or deployment boundaries.
+distinguish alternatives and cover the relevant cases. Keep activities, conditions, states and
+domain relationships consistent with their owning definitions. Expose consequential overlaps or
+missing paths through the decision guidance above. Business responsibilities do not establish
+component or deployment boundaries.
 
 ### State transitions
 
-Identify the subject whose lifecycle is modelled, its business states, triggering events,
-guards and observable effects. Distinguish a state from an event or activity. For example,
+Before formalising a lifecycle, identify its subject and the question the view answers. Establish
+which assessments, conditions, execution controls and reasons for ending vary independently of
+that lifecycle. Keep those dimensions and other subjects' lifecycles separate unless their
+interaction needs a combined view; retain the rules that connect them. A distinction belongs in
+a state when it explains state-dependent behaviour or obligations; otherwise consider an attribute,
+assessment, guard or completion reason. This does not prescribe particular states or make every
+cancellation a code.
+
+Use concise, conventional state names; identify the subject in the title and put triggering
+events and guards on transitions. Make observable effects clear. Keep detailed explanations
+beside the chart rather than in state labels.
+Distinguish a state from an event or activity. For example,
 "awaiting evidence" is a state, "evidence received" is an event, and "assess eligibility" is
 an activity. Capture source-supported invariants and unresolved meaning separately. An invariant
 must express a governing obligation, not merely restate the labels chosen for the model.
@@ -213,8 +244,11 @@ to select relevant relationships, reuse valid evidence and report the examined s
 technique-specific criteria here; do not add a separate model review pass.
 
 Keep editable source. Prefer repository-supported Mermaid for diagrams and Markdown for tables
-and constraints unless the user requests another supported format. Describe Mermaid class and
-flow diagrams as UML-style views where appropriate; do not claim full UML conformance.
+and constraints unless the user requests another supported format. Follow the repository or user
+convention for inline Mermaid and separate sources. Rendering for inspection does not require
+retaining generated images in the document set; keep exports when the requested deliverable needs
+them. Preserve required rendering checks even when their outputs are temporary. Describe Mermaid
+class and flow diagrams as UML-style views where appropriate; do not claim full UML conformance.
 Do not install a renderer or add dependencies merely to model. No external skill is required.
 
 Report these checks separately:

@@ -35,6 +35,21 @@ Different specialisms may legitimately mean different things by the same word. E
 applicable scope, not a universal vocabulary. Keep product users, document readers and business
 decision authorities distinct. No preset specialist profile or audience configuration is required.
 
+## Concepts and operational terms
+
+For material terms that can be confused, establish their subject, identity or grain, applicable
+scope and role in a representative case. Distinguish entities and relationships from their
+attributes, assessments, conditions, states and events. A reporting event is not a lifecycle
+state; an assessment about an input is not the input itself. Keep a concept only when its distinct
+meaning is needed to explain the outcome or a governing rule, rather than making every noun an
+entity. Use the [state-transition guidance](models.md#state-transitions) before formalising lifecycles.
+
+Give relational terms an explicit reference: independent of which condition, a prerequisite for
+which step, or accepted for which revision and use. Where concepts overlap, explain the actual
+relationship instead of assigning inconsistent scopes. For example, satisfied prerequisites can
+be necessary without being sufficient permission to proceed. Define the material distinction once
+and use its owner in requirements and models.
+
 ## Contexts and relationships
 
 A bounded context is a scope within which a particular domain model, its terms and rules apply
