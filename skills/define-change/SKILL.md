@@ -32,10 +32,13 @@ readers and people authorized to make business decisions only as far as the task
 For recovery, distinguish observed behavior from a proposal to change it. Use the shared
 artifact conventions to keep descriptions separate from governing requirements.
 
-Work through representative activities and examples. Establish observable outcomes, business
-meaning, boundaries and exceptions together where that is useful. Separate confirmed facts,
-proposals and consequential unknowns. Investigate available evidence before asking about a
-product choice. Do not ask the user for facts available in the repository.
+Establish the intended outcome from the request and governing sources before organising
+obligations. Work through representative activities and success cases. Test whether apparently
+successful local work could still fail that outcome. Use the existing
+[objective-support and obligation-boundary checks](references/requirements.md#quality-of-the-result)
+while drafting. Establish business meaning, boundaries and exceptions together where useful.
+Separate confirmed facts, proposals and consequential unknowns. Investigate available evidence
+before asking about a product choice. Do not ask for facts available in the repository.
 
 When an investigation or spike depends on unsettled intended behavior or domain meaning,
 establish that meaning here before its method or metric is chosen. Name the practical decision,
@@ -44,6 +47,29 @@ credible evidence and material impact for that decision. Record consequential in
 agreed in discussion with their rationale and sources. Expert assessment of evidence does not
 accept a product rule. If existing accepted meanings already settle the question, point the
 investigation to them instead of reopening the model.
+
+### Develop through focused rounds
+
+During Draft and substantive Revise, develop relevant domain meaning, obligations and selected
+models together, using the guidance below. Start with a coherent account sufficient to test the
+intended outcome. Refine it when a concrete defect, new evidence or user input warrants another
+round; do not wait for a complete catalogue before applying the quality criteria.
+
+Match user involvement to the requested working style. In interactive work, offer early feedback
+on outcome framing, central domain distinctions or substantive alternatives when it could change
+direction. In autonomous work, continue authorised drafting and refinement without routine approval
+checkpoints. A consequential product choice not delegated to the agent, or missing permission,
+blocks only dependent work. Prepare the concrete choice and consequences through the existing
+findings guidance; continue independent permitted work. Distinguish feedback, a required decision
+and acceptance. Silence supplies neither a decision nor acceptance.
+
+Apply feedback at its owning source, then reconcile affected requirements, definitions, models
+and examples through the existing consistency comparison. Preserve settled decisions and
+unaffected valid work. Use the existing independent challenge procedure for the coherent
+candidate and substantive corrections; refinement does not require a new reviewer or full review
+for every round. Finish the requested operation when its result supports the intended next use
+and required checks, material findings and limits are accounted for. Further rounds need a named
+defect, changed input or requested improvement; optional polish does not keep the task open.
 
 ### Choose the output and supporting guidance
 
