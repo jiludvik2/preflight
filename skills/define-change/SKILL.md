@@ -90,6 +90,7 @@ relationships or information restrictions affect the requested outcome, even wit
 During Draft and substantive Revise, use the
 [question-to-technique aid](references/models.md#choose-a-technique-for-the-question) to select and include
 useful representations from the requirements and domain structure, including already settled rules.
+Apply its priorities and content triggers; reuse adequate views and account for material omissions.
 Use the smallest set that explains materially distinct concerns. Review and Validate assess model
 adequacy within their read-only scope.
 
@@ -124,8 +125,11 @@ For Draft or substantive Revise, complete [independent challenge](../../shared/i
 for the affected concern.
 Report unavailable independent review explicitly rather than claiming reviewed completion.
 
-For Draft or substantive Revise, inspect the resulting artifact against the governing sources
-and a representative scenario. Apply [consistency comparison](../../shared/principles.md#compare-related-representations)
+For Draft or substantive Revise, use the [model coverage checks](references/models.md#verify-and-report)
+to identify missing representations before assessing supplied models. Apply those checks in the
+existing independent review too. On revision, preserve the explanatory purpose of removed or
+replaced views. Inspect the resulting artifact against governing sources and a representative
+scenario. Apply [consistency comparison](../../shared/principles.md#compare-related-representations)
 to selected models and their material relationships within this check. Check semantic correctness, terminology fit and reader
 comprehension separately. Confirm that selected views and explicitly requested outputs are supplied, uncertainty
 and proposed status are visible, and the next specialist can proceed without the conversation.

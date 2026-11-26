@@ -37,17 +37,29 @@ can supply an adequate data view without a duplicate record diagram or another o
 Distinguish conceptual relationships, logical schema, physical storage and execution records when
 those differences matter. Operational records can be domain concepts when operations are the subject.
 
-| Technical content made explicit | Suitable view | Default representation |
+Inspect the following concerns in priority order, raising the concern that carries the dominant
+risk or uncertainty. This is an order of attention, not a fixed production sequence. When a
+trigger applies, include the corresponding coverage or reuse an adequate representation.
+Explain a material omission or substitution in the existing operation notes or result: identify
+where equivalent coverage exists, the scope exclusion or the unresolved decision. Brevity alone
+does not justify omitting material structure or behavior. Simple changes need no omission checklist.
+
+| Priority | Material technical content | Required explanatory coverage and default representation |
 | --- | --- | --- |
-| System users and external interactions | C4 system context | Mermaid C4Context |
-| Component responsibilities, dependencies and interactions | Component structure | Mermaid flowchart with explicit ownership, invocation and data connectors |
-| Runtime hosts, processes and isolation | Deployment | Mermaid C4Deployment |
-| Call, message or concurrency order between participants | Interaction | Mermaid sequenceDiagram |
-| Execution paths, ordering, branches, loops and handoffs | Activity or flow | Mermaid flowchart, including material linear handoffs |
-| Concept or data relationships | Class or entity-relationship model | Mermaid classDiagram or erDiagram, or adequate canonical types or schemas |
-| State-dependent lifecycle behavior | State machine | Mermaid stateDiagram-v2 or a complete transition table when no diagram is selected |
-| Interacting technical conditions and their outcomes | Decision model | Markdown decision table with explicit matching semantics |
-| Event timing and temporal constraints | Timing view | Mermaid timeline plus precise constraints in companion text |
+| 1 | Responsibilities are allocated across collaborating components, or material component boundaries or interfaces change | Component structure and interactions: Mermaid flowchart with responsibility boundaries and labelled invocation and data connectors. |
+| 2 | System scope, users or external interactions need explanation | C4 system context: Mermaid C4Context. Every architecture document requires its embedded context view as specified above. |
+| 3 | Concept identities, data relationships or ownership affect technical behavior | Domain-to-technical mapping and class or entity-relationship view, or adequate canonical types or schemas. Reuse domain meanings and distinguish them from storage structure. |
+| 4 | Execution paths, branches, loops or handoffs determine the end-to-end outcome | Activity or flow: Mermaid flowchart, including material linear handoffs. |
+| 5 | Call, message or concurrency order determines a scenario's behavior | Interaction sequence: Mermaid sequenceDiagram for consequential scenarios. |
+| 6 | Technical behavior depends on lifecycle state | State machine: Mermaid stateDiagram-v2 or a complete transition table when no diagram is selected. |
+| 7 | Runtime placement, process isolation or infrastructure affects operation | Deployment: Mermaid C4Deployment. |
+| 8 | Interacting conditions determine technical outcomes | Decision model: Markdown decision table with explicit matching semantics. |
+| 9 | Deadlines or relative timing constrain behavior | Timing view: Mermaid timeline plus precise constraints in companion text. |
+
+A component view establishes responsibilities, boundaries and connections. A flowchart of actions
+establishes execution paths; a sequence establishes scenario-specific ordering. A flow or sequence
+alone does not replace the component view when component structure is material. For a small change
+to one settled interface, existing signatures, semantics and a revealing example may suffice.
 
 For component flowcharts, define roles, boundaries and connector meanings. Distinguish ownership,
 invocation and data transfer. Draw invocation from caller to callee; include a response when its
@@ -57,6 +69,20 @@ communication. Do not substitute UML deployment or Mermaid architecture-beta as 
 
 In sequence views, preserve supported partial order. Use concurrency constructs or separate scoped
 scenarios when participants can act independently; vertical position must not invent a total order.
+
+For activity flowcharts, give each view one process question and a consistent level of detail.
+Use concise action labels, explicit decision questions and guards that distinguish the relevant
+alternatives. Name supported completion, failure and waiting outcomes. Distinguish returning one
+case's result from completing the wider operation. Keep subordinate detail in its owning activity
+unless its branches change the outcome shown here.
+For a retry or other consequential loop, show what changes or permits another attempt and what
+ends repetition. A wait for an input is different from a correction to an invalid plan. State
+whether a join waits for all paths, any path or another defined condition. An arrow labelled
+"for each" does not establish iteration, concurrency or completion semantics. For example, a
+publication flow must distinguish finishing one recipient from satisfying its overall delivery
+condition. Derive that condition from the governing contract rather than inventing an all-recipient
+guarantee. Check material path reachability, branch coverage and consistency with the owning rules.
+
 For decision tables, state whether rows are mutually exclusive, first-match in a specified order,
 or all-match with defined combination semantics. Expose overlaps, gaps and undecided outcomes.
 For timing views, identify event anchors, units, deadlines and relevant inclusivity or clock rules.
@@ -109,6 +135,16 @@ A focused view may omit unrelated behavior. Explain its scope without excluding 
 needed to answer its stated question or satisfy the requested deliverable. Resolve unexplained
 differences by correcting the views or explaining their actual scope difference. Do not invent
 behavior to complete a diagram.
+
+Before removing, replacing or simplifying a view, identify the question it answered and where
+that coverage will remain. Revise the component view when boundaries or interfaces change;
+replacing it with a workflow does not preserve its structural explanation. Retain useful coverage
+or report the particular unresolved gap, including on revisions focused on another contract.
+
+Trace consequential sequence participants and exchanges to defined component responsibilities
+and interfaces. Check that payloads agree with their contracts, deployment locations agree with
+logical boundaries, and technical states preserve the governing lifecycle meaning. Explain scope
+and abstraction differences rather than forcing views to contain identical elements.
 
 Invocation arrows, data relationships and state transitions express different relationships.
 Related views need consistent facts, not identical arrows. Use a short mapping table when names
@@ -174,6 +210,12 @@ designated under the repository's conventions. It is not automatically normative
 whether a change alters meaning; an explanatory diagram need not trigger substantive revision.
 Changed normative meaning follows the accepted-baseline rules. A requested model does not
 authorize inventing behavior to fill a missing governing decision.
+
+The author and independent reviewer first inspect the sources for material responsibilities,
+interfaces, behavior and risks. Independently identify the coverage those concerns require before
+judging the supplied views. Compare against the selection triggers, including adequate reused
+views and material omissions. Record the reasoning in existing working notes or review findings;
+no separate coverage report or review stage is required. Review and Validate retain their scope.
 
 Before completing Draft or affected Revise, account for each selected, requested and reused view.
 Check both directions: it must not add unsupported behavior, and surrounding contract text must not

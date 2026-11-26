@@ -33,22 +33,29 @@ tables to explain findings. Modelling does not authorise implementation or accep
 
 ## Choose a technique for the question
 
-Inspect the covered behavior and domain relationships, then select representations that make
-their rules and consequences understandable. During Draft and substantive Revise, include those
-views even when the source meaning is already settled. During assessment, use the same questions
-to find inadequate or missing representations. A simple isolated rule, such as permission to apply
-at age 18, can use a boundary example. A keyword such as "state" or "role" alone does not select a diagram.
+Inspect the covered behavior and domain relationships in the priority order below. Resolve
+foundational meaning before models that depend on it. Raise a concern's priority when its risk
+or uncertainty dominates the change. This is an order of attention, not a fixed authoring sequence
+or a required diagram set. Settled rules still need useful representations. During assessment,
+use the same triggers to identify missing coverage.
 
-| Requirements or domain structure and question | Selected technique |
-| --- | --- |
-| Which combinations of conditions determine the outcome? Can rules overlap or leave a case undecided? | Decision table with explicit inputs and matching semantics. |
-| What can happen next to this subject, and under which event or condition? | [Statechart](#state-transitions) when event effects depend on the subject's state. |
-| Which business paths, required ordering or handoffs lead to completion, failure or incomplete work? | Business flowchart or activity diagram, with guarded branches where supported. |
-| Which concepts are related, and does a rule apply to one member, a subset or the whole? | Concept model for material identity, relationships and cardinalities. |
-| How do necessary, alternative or shared results contribute to a larger outcome? | Contribution graph with explicit grouping, distinguished from execution order. |
-| Which obligation is carried into which output revision or observation? | A small traceability matrix when those relationships are material to the requested understanding. |
-| Does an outcome depend on event order or a time boundary? | Time constraints and a revealing timeline. |
-| Who supplies evidence, performs work or decides? Does meaning change across contexts? | Responsibility matrix for material role distinctions; context map for material meaning boundaries and translations. |
+| Priority | Material requirements or domain content | Required explanatory coverage |
+| --- | --- | --- |
+| 1 | Concepts whose identity, meaning, relationships or cardinalities affect the rules | Conceptual domain model with definitions and relevant relationship constraints. Reuse adequate domain models; do not substitute database tables. |
+| 2 | Permitted actions or event effects depend on a subject's lifecycle state | [Statechart](#state-transitions) with events, guards and effects for each distinct lifecycle. A status word alone does not trigger one. |
+| 3 | Combinations of conditions determine permitted or required outcomes | Decision table with explicit inputs, outcomes and matching semantics, supported by domain rules and invariants. A simple isolated rule, such as eligibility at age 18, can use a boundary example. |
+| 4 | Scope, external responsibilities, information restrictions or meanings differ across boundaries | System context for the system boundary and external participants; context map for meaning boundaries and translations. Use a responsibility matrix where role distinctions need it. These views answer different questions. |
+| 5 | Business paths, ordering, branches or handoffs determine whether an outcome is reached | Outcome-oriented business flowchart, including material alternative and unsuccessful paths. |
+| 6 | Externally observable exchanges, acknowledgements or ordering constrain participants | Black-box interaction sequence with relevant conditions and responses. Specify observable obligations without inventing internal components. |
+| Supporting | Event timing or a time boundary determines an outcome | Precise time constraints and a revealing timeline. |
+| Supporting | Necessary, alternative or shared results contribute to a larger outcome | Contribution graph with explicit grouping, distinguished from execution order. |
+| Supporting | Obligations must be followed into particular output revisions or observations | A small traceability matrix when those relationships are material to the requested understanding. |
+
+When a trigger applies, include the corresponding coverage or reuse an adequate representation.
+One representation may answer several questions; several may be necessary for distinct questions.
+Explain a material omission or substitution in the existing operation notes or result: identify
+where equivalent coverage exists, the scope exclusion or the unresolved decision. Brevity alone
+does not justify leaving material meaning unexplained. Simple rules need no omission checklist.
 
 Use only the relevant technique guidance below. Select all materially distinct necessary views,
 then remove redundant ones; do not limit selection to one view when several explain different rules.
@@ -234,11 +241,26 @@ Keep necessary context, but replace redundant notation and summaries rather than
 equivalent descriptions. Reconcile discrepancies with surrounding text and affected models;
 do not silently let the new representation override governing meaning.
 
+Before removing, replacing or simplifying a view, identify the question it answered and where
+that coverage will remain. Update affected relationships when responsibilities or rules change.
+A valid new view does not justify losing a different material question from the old one. Preserve
+useful coverage or report the specific gap; an unresolved decision may need a provisional view.
+
 ## Verify and report
 
-Check the selected models against governing sources and representative cases from the objective.
+The author and independent reviewer first inspect the sources for material concepts, lifecycles,
+conditions, boundaries and paths. Independently identify the coverage those concerns require before
+judging the supplied models. Compare against the selection triggers, including adequate reused
+views and material omissions. Keep the rationale in existing working notes or review findings;
+no separate coverage report or review stage is required. Review and Validate retain their scope.
+
+Then check the supplied models against governing sources and representative cases from the objective.
 They must neither add unsupported behaviour nor omit behaviour necessary to their stated purpose.
-Apply the technique-specific checks above and check consistency across affected views.
+Check shared concept identities and definitions, decision outcomes and transition guards, flow
+outcomes and lifecycle effects, and contextual responsibilities and permitted information where
+they describe the same concern. Different views need consistent meaning, not identical elements.
+Apply the technique-specific checks above. Scenarios and acceptance examples exercise the models;
+a few successful examples do not establish completeness.
 Use the shared [comparison procedure](../../../shared/principles.md#compare-related-representations)
 to select relevant relationships, reuse valid evidence and report the examined scope. Keep the
 technique-specific criteria here; do not add a separate model review pass.
