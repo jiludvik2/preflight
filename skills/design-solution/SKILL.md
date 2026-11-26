@@ -57,7 +57,7 @@ propose only the missing change. Select and read the relevant reference before w
 - [Architecture](references/architecture.md) for component boundaries, interfaces, main technology choices and decomposition. Every architecture document created or revised includes the system context diagram defined there.
 - [Decisions](references/decisions.md) for ADR analysis, authoring, substantive revision or assessment, including decision boundaries and verification obligations.
 - [Technical contracts](references/technical-contracts.md) for technical designs, protocols, HTTP contracts and consequential execution dependencies.
-- [Models](references/models.md) on Draft and substantive Revise to select and include the smallest set of materially useful views from the technical content, even when its rules are settled. No separate diagram request is needed. On Review or Validate, use it to assess model gaps within the requested scope without editing.
+- [Models](references/models.md) on Draft and substantive Revise to select and include the smallest set of materially useful views from the technical content, even when its rules are settled. Apply its priorities and content triggers, reuse adequate views and account for material omissions. No separate diagram request is needed. On Review or Validate, use it to assess model gaps within the requested scope without editing.
 - [Lifecycle](references/lifecycle.md) for changes to accepted designs and retained amendments.
 - [Execution handoff](../../shared/execution-handoff.md) when handing work to an execution lead or changing in-flight work.
 
@@ -67,6 +67,29 @@ interface may need only its signatures, semantics and a revealing example.
 
 For internal Python contracts, apply the [representation defaults](references/technical-contracts.md#internal-python-contracts)
 when choosing contract artifacts.
+
+### Develop through focused rounds
+
+During Draft and substantive Revise, develop responsibilities, contracts and selected models
+together. Start with a coherent end-to-end account sufficient to test the required outcome,
+before elaborating every interface or schema. Ask whether components could satisfy their local
+contracts while the required outcome still fails. Use the existing contract walkthrough and
+verification guidance to expose the missing guarantee, unsupported mechanism or unresolved choice.
+Reuse that analysis in completion checks.
+
+In interactive work, invite early feedback when a consequential boundary or technical alternative
+could change direction. In autonomous work, continue authorised design and refinement without
+routine approval checkpoints. An undelegated consequential choice or missing permission blocks
+only dependent work. Prepare the concrete choice and consequences through the existing findings
+guidance, and continue independent work. Feedback, a decision and acceptance remain distinct.
+
+Refine when a concrete defect, new evidence or user input warrants another round. Apply the change
+at its owning decision or contract, then reconcile affected paths, models and verification
+obligations using the existing change-consistency guidance. Preserve settled decisions and valid
+unaffected work. Independent challenge covers the coherent candidate and substantive corrections;
+each round does not require another reviewer or a full review. Finish when the requested result
+supports its intended next use and required checks, material findings and limits are accounted for.
+Further rounds need a named defect, changed input or requested improvement.
 
 ### Use research and implementation evidence
 
@@ -102,8 +125,11 @@ successive clarifications. Give each rule one owning location and reference it e
 repetition while preserving conditions, exceptions, safeguards, governing references and stable link
 targets. Keep the detail needed to explain and implement the design; no fixed document length is a target.
 
-For Draft or substantive Revise, inspect the complete result against its supporting evidence
-and a representative end-to-end scenario. Apply [consistency comparison](../../shared/principles.md#compare-related-representations)
+For Draft or substantive Revise, use the [model coverage checks](references/models.md#authority-and-proof)
+to identify missing representations before assessing supplied views. Apply those checks in the
+existing independent review too. On revision, preserve the explanatory purpose of removed or
+replaced views. Inspect the complete result against its supporting evidence and a representative
+end-to-end scenario. Apply [consistency comparison](../../shared/principles.md#compare-related-representations)
 to selected views and their material relationships within this check. Check governing claims against accepted sources.
 Check as-built descriptions against the inspected implementation. Report discrepancies with
 governing sources without silently resolving them. Check responsibility and interface fit,
@@ -121,6 +147,10 @@ Check comprehension from both perspectives:
 - Can an implementing agent determine the inputs, next action, decision conditions, expected output
   and unresolved choices without inventing behavior or consulting the conversation?
 
+When a design spans documents, provide a short reading route where needed. Check that a reader
+entering through one component or interface contract can find the applicable cross-cutting
+guarantees and their owning definitions. Link to those definitions rather than duplicating them.
+
 Where interpretation is still necessary, report the specific missing explanation, rule or decision,
 the affected behavior and the next action. These checks need no score or new approval gate.
 Independent challenge covers the coherent concern, without requiring a reviewer for every document.
@@ -134,6 +164,8 @@ the named properties and directly affected consequences. Apply the composition, 
 comprehension considerations above proportionately within that boundary. Report concrete gaps;
 neither operation revises or accepts artifacts.
 Use [consistency comparison](../../shared/principles.md#compare-related-representations) within that scope.
+For technical-contract completeness or guarantee-boundary review, use the
+[inspectable coverage guidance](references/technical-contracts.md#make-contract-review-coverage-inspectable).
 "Validate consistency" checks a supplied design bundle and its governing requirements through this
 existing operation, independently of a current edit, without starting repairs or another coordinator.
 

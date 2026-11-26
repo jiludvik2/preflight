@@ -135,6 +135,28 @@ Include a relevant distinction or adverse case where it could defeat the intende
 Structural checks and constructed consumer examples do not establish live producer reliability.
 Carry untested behavior and unresolved expected results into the handoff as such.
 
+## Make contract review coverage inspectable
+
+When reviewing technical-contract completeness or the boundaries of its guarantees, identify the
+observable guarantees within the requested scope, including normative tables and unnumbered prose.
+In the existing review result, relate the examined clauses to their guarantees, owning locations
+and conclusions. Group simple clauses where one explanation applies, while keeping their coverage
+identifiable and material missing guarantees or owners visible. A list of headings or valid links
+does not establish semantic coverage. This adds no permanent register, ID scheme or review stage.
+
+For a clause with several effects, use a concrete case to test whether they can hold or fail
+independently. Durability before acknowledgement and duplicate suppression after retry can fail
+independently. Preserve coupled guarantees where their condition and effects define one response,
+such as rejecting a conflicting retry without changing the original result. Explain material
+boundary conclusions without requiring a separate clause or document for every effect.
+Relate the guarantees to the observations that would demonstrate them, using the existing
+verification guidance. Distinguish proposed verification from evidence of an executed check.
+
+An initial whole-contract review covers the proposed guarantees within that scope. Revision and
+correction checks cover changed meaning, affected guarantees and unresolved findings, even when
+headings or identifiers stay unchanged. A bounded Validate stays within its named properties and
+direct consequences. ADR obligation admission remains with the [decision guidance](decisions.md).
+
 ## HTTP and external contracts
 
 Keep wire behavior in the established API contract, using OpenAPI when appropriate. Define
